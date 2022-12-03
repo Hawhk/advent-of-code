@@ -9,10 +9,8 @@ import java.util.Scanner;
 public class Solver1 {
 
     private String fileName;
-    private String result;
 
     private final String testResult = "";
-    private final String day = getDay();
 
     public Solver1(String fileName) {
         this.fileName = fileName;
@@ -22,20 +20,24 @@ public class Solver1 {
 
         var data = getInput();
 
-        return data.toString();
+        return solution(data);
     }
 
-    private List<Object> getInput() {
+    private String solution(List<String> data) {
+    	
+		return null;
+	}
 
-        List<Object> input = new ArrayList<>();
-        input.add(null);
+	private List<String> getInput() {
+
+        List<String> input = new ArrayList<>();
 
         try {
-            File myObj = new File("day" + day + "/input/" + fileName);
+            File myObj = new File("input/" + fileName);
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                //code here!
+                input.add(data);
             }
             myReader.close();
         } catch (FileNotFoundException e) {
@@ -44,11 +46,6 @@ public class Solver1 {
         }
 
         return input;
-    }
-
-    private String getDay() {
-        String name = Part1Day0.class.getSimpleName();
-        return name.substring(name.indexOf("y") + 1);
     }
 
     public String getTestResult() {
