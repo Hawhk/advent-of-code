@@ -1,16 +1,18 @@
-package se.adventofcode.day0.part1;
+package se.adventofcode.day4.part1;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.System.Logger;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 public class Solver1 {
 
     private static final Logger LOGGER = System.getLogger(Solver1.class.getName());
-    private static final String TEST_RESULT = "";
+	private static final String TEST_RESULT = "2";
 
     private String fileName;
 
@@ -27,7 +29,20 @@ public class Solver1 {
 
     private String solution(List<String> data) {
 
-        return null;
+		return data.stream().map(this::solution).reduce(0, Integer::sum).toString();
+	}
+
+	private int solution(String row) {
+		var ranges = Arrays.stream(row.split(",")).map(a -> a.split("-")).flatMap(Arrays::stream)
+				.mapToInt(Integer::parseInt).toArray();
+		
+		LOGGER.log(Logger.Level.DEBUG, "{}, {}", ranges, row);
+
+		if ((ranges[0] >= ranges[2] && ranges[1] <= ranges[3]) || (ranges[0] <= ranges[2] && ranges[1] >= ranges[3])) {
+			return 1;
+		}
+
+		return 0;
     }
 
     private List<String> getInput() {

@@ -1,4 +1,4 @@
-package se.adventofcode.day0.part1;
+package se.adventofcode.day4.part1;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
