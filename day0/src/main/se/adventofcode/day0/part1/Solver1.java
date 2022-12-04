@@ -2,15 +2,17 @@ package se.adventofcode.day0.part1;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.System.Logger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Solver1 {
 
-    private String fileName;
+    private static final Logger LOGGER = System.getLogger(Solver1.class.getName());
+    private static final String testResult = "";
 
-    private final String testResult = "";
+    private String fileName;
 
     public Solver1(String fileName) {
         this.fileName = fileName;
@@ -24,11 +26,11 @@ public class Solver1 {
     }
 
     private String solution(List<String> data) {
-    	
-		return null;
-	}
 
-	private List<String> getInput() {
+        return null;
+    }
+
+    private List<String> getInput() {
 
         List<String> input = new ArrayList<>();
 

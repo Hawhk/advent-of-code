@@ -1,10 +1,18 @@
 package se.adventofcode.day0.part2;
 
-public class Part2Day0 {
-    public static void main(String[] args) {
-        System.out.println(Part2Day0.class.getSimpleName());
-        Solver2 solver = new Solver2("input.txt");
+import java.lang.System.Logger;
 
-        System.out.println("Result: " + solver.solve());
+import se.adventofcode.day0.part1.Part1Day0;
+import se.adventofcode.day0.part1.Solver1;
+
+public class Part2Day0 {
+
+    private static final Logger LOGGER = System.getLogger(Part2Day0.class.getName());
+
+    public static void main(String[] args) {
+        LOGGER.log(System.Logger.Level.INFO, "Starting " + Part1Day0.class.getSimpleName());
+        Solver1 solver = new Solver1("input.txt");
+
+        LOGGER.log(System.Logger.Level.INFO, "Result: " + solver.solve());
     }
 }

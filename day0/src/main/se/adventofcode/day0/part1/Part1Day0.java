@@ -1,11 +1,15 @@
 package se.adventofcode.day0.part1;
 
+import java.lang.System.Logger;
 
 public class Part1Day0 {
+
+    private static final Logger LOGGER = System.getLogger(Part1Day0.class.getName());
+
     public static void main(String[] args) {
-        System.out.println(Part1Day0.class.getSimpleName());
+        LOGGER.log(System.Logger.Level.INFO, "Starting " + Part1Day0.class.getSimpleName());
         Solver1 solver = new Solver1("input.txt");
 
-        System.out.println("Result: " + solver.solve());
+        LOGGER.log(System.Logger.Level.INFO, "Result: " + solver.solve());
     }
 }
