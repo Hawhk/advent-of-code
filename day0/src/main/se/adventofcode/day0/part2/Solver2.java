@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Solver2 {
 
     private static final Logger LOGGER = System.getLogger(Solver2.class.getName());
-    private static final String testResult = "";
+    private static final String TEST_RESULT = "";
 
     private String fileName;
 
@@ -43,14 +43,13 @@ public class Solver2 {
             }
             myReader.close();
         } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
+            LOGGER.log(Logger.Level.TRACE, e);
         }
 
         return input;
     }
 
     public String getTestResult() {
-        return testResult;
+        return TEST_RESULT;
     }
 }

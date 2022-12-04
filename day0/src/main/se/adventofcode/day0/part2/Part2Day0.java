@@ -10,9 +10,9 @@ public class Part2Day0 {
     private static final Logger LOGGER = System.getLogger(Part2Day0.class.getName());
 
     public static void main(String[] args) {
-        LOGGER.log(System.Logger.Level.INFO, "Starting " + Part1Day0.class.getSimpleName());
+        LOGGER.log(Logger.Level.INFO, "Starting " + Part1Day0.class.getSimpleName());
         Solver1 solver = new Solver1("input.txt");
 
-        LOGGER.log(System.Logger.Level.INFO, "Result: " + solver.solve());
+        LOGGER.log(Logger.Level.INFO, "Result: " + solver.solve());
     }
 }
