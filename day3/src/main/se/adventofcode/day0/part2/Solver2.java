@@ -1,4 +1,4 @@
-package se.adventofcode.day0.part2;
+package se.adventofcode.day7.part2;
 
 import java.io.File;
 import java.io.FileNotFoundException;
