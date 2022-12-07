@@ -10,6 +10,6 @@ public class Part2Day7 {
 		LOGGER.log(Logger.Level.INFO, "Starting " + Part2Day7.class.getSimpleName());
         Solver2 solver = new Solver2("input.txt");
 
-        LOGGER.log(Logger.Level.INFO, "Result: " + solver.solve());
+		LOGGER.log(Logger.Level.INFO, "Result: " + solver.solve());
     }
 }

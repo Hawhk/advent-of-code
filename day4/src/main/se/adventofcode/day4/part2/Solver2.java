@@ -2,12 +2,14 @@ package se.adventofcode.day4.part2;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
 
 public class Solver2 {
 
@@ -22,9 +24,12 @@ public class Solver2 {
 
     public String solve() {
 
-        var data = getInput();
+		var data = getInput();
+		long start = System.nanoTime();
+		String result = solution(data);
+		LOGGER.log(Level.INFO, "Took {0}ms", (System.nanoTime() - start) / 1_000_000);
 
-        return solution(data);
+		return result;
     }
 
     private String solution(List<String> data) {
@@ -33,18 +38,9 @@ public class Solver2 {
 	}
 
 	private int solution(String row) {
-		var ranges = Arrays.stream(row.split(",")).map(a -> a.split("-")).flatMap(Arrays::stream)
-				.mapToInt(Integer::parseInt).toArray();
+		String[] ranges = (String[]) Arrays.stream(row.split(",")).map(a -> a.split("-")).flatMap(Arrays::stream).toArray();
 
-		LOGGER.log(Logger.Level.DEBUG, "{}, {}", ranges, row);
-
-		for (int i = ranges[0]; i <= ranges[1]; i++) {
-			for (int j = ranges[2]; j <= ranges[3]; j++) {
-				if (i == j) {
-					return 1;
-				}
-			}
-		}
+		HashSet<String> set = new HashSet<>(Arrays.asList(ranges));
 
 		return 0;
     }

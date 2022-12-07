@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
 
 public class Solver2 {
 
@@ -25,9 +26,12 @@ public class Solver2 {
 
     public String solve() {
 
-        var data = getInput();
+		var data = getInput();
+		long start = System.nanoTime();
+		String result = solution(data);
+		LOGGER.log(Level.INFO, "Took {0}ms", (System.nanoTime() - start) / 1_000_000);
 
-        return solution(data);
+		return result;
     }
 
     private String solution(List<String> data) {
@@ -105,7 +109,7 @@ public class Solver2 {
             }
             myReader.close();
         } catch (FileNotFoundException e) {
-            LOGGER.log(Logger.Level.TRACE, e);
+			LOGGER.log(Level.TRACE, e);
         }
 
         return input;

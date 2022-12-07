@@ -2,12 +2,14 @@ package se.adventofcode.day7.part1;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.Scanner;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
+
+import se.adventofcode.day7.Directory;
 
 public class Solver1 {
 
@@ -25,9 +27,12 @@ public class Solver1 {
 
     public String solve() {
 
-        var data = getInput();
+		var data = getInput();
+		long start = System.nanoTime();
+		String result = solution(data);
+		LOGGER.log(Level.INFO, "Took {0}ms", (System.nanoTime() - start) / 1_000_000);
 
-        return solution(data);
+		return result;
     }
 
     private String solution(List<String> data) {
@@ -86,7 +91,7 @@ public class Solver1 {
             }
             myReader.close();
         } catch (FileNotFoundException e) {
-            LOGGER.log(Logger.Level.TRACE, e);
+			LOGGER.log(Level.TRACE, e);
         }
 
         return input;
@@ -95,68 +100,4 @@ public class Solver1 {
     public String getTestResult() {
         return TEST_RESULT;
     }
-
-	private class Directory {
-		@Override
-		public String toString() {
-			return "Directory [dirs=" + dirs.size() + ", files=" + files + ", size=" + size + ", parent="
-					+ Optional.ofNullable(parent).map(Directory::getName).orElse(null)
-					+ ", name="
-					+ name + "]";
-		}
-
-		private final List<Directory> dirs = new ArrayList<>();
-		private final List<FileWithSize> files = new ArrayList<>();
-		
-		private int size = 0;
-
-		private Directory parent = null;
-		private String name;
-		
-		public Directory(Directory parent, String name) {
-			this.parent = parent;
-			this.name = name;
-		}
-
-		public List<Directory> flaten() {
-			List<Directory> flat = new ArrayList<>();
-
-			dirs.stream().forEach(dir -> flat.addAll(dir.flaten()));
-			flat.add(this);
-			return flat;
-		}
-
-		public List<Directory> getDirs() {
-			return dirs;
-		}
-
-		public int getSize() {
-			if (size == 0) {
-				int localSize = files.stream().map(FileWithSize::size).reduce(0, Integer::sum)
-						+ dirs.stream().map(Directory::getSize).reduce(0, Integer::sum);
-				size = localSize;
-			}
-			return size;
-		}
-
-		public String getName() {
-			return name;
-		}
-
-		public Directory getParent() {
-			return parent;
-		}
-
-		public void addDir(Directory dir) {
-			dirs.add(dir);
-		}
-
-		public void addFiles(int size) {
-			files.add(new FileWithSize(size));
-		}
-	}
-	
-	private record FileWithSize (int size) {
-		
-	}
 }
