@@ -1,12 +1,13 @@
-package se.adventofcode.day7.part1;
+package se.adventofcode.day3.part1;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.Scanner;
+
+import java.io.File;
+import java.io.FileNotFoundException;
 
 public class Solver1 {
 

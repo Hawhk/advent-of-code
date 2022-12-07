@@ -1,11 +1,11 @@
-package se.adventofcode.day7;
+package se.adventofcode.day3;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import se.adventofcode.day7.part1.Solver1;
-import se.adventofcode.day7.part2.Solver2;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import se.adventofcode.day3.part1.Solver1;
+import se.adventofcode.day3.part2.Solver2;
 
 class SolverTest {
 

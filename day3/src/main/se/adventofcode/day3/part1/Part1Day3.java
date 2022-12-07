@@ -1,4 +1,4 @@
-package se.adventofcode.day7.part1;
+package se.adventofcode.day3.part1;
 
 
 public class Part1Day3 {
