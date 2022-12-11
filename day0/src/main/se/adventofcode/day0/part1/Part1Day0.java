@@ -9,7 +9,7 @@ public class Part1Day0 {
 
     public static void main(String[] args) {
         LOGGER.log(Level.INFO, "Starting " + Part1Day0.class.getSimpleName());
-        Solver1 solver = new Solver1("input.txt");
+        Solver solver = new Solver("input.txt");
 
         LOGGER.log(Level.INFO, "Result: " + solver.solve());
     }

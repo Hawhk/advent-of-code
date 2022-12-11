@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 class Solver1Test {
 
-    Solver1 solver = new Solver1("test-input.txt");
+    Solver solver = new Solver("test-input.txt");
 
     @Test
     public void solvePart1Test() {
