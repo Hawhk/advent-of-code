@@ -2,14 +2,8 @@ package se.adventofcode.day7;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class Directory {
-	@Override
-	public String toString() {
-		return "Directory [dirs=" + dirs.size() + ", files=" + files + ", size=" + size + ", parent="
-				+ Optional.ofNullable(parent).map(Directory::getName).orElse(null) + ", name=" + name + "]";
-	}
 
 	private final List<Directory> dirs = new ArrayList<>();
 	private final List<Integer> files = new ArrayList<>();
