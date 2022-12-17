@@ -3,7 +3,6 @@ package se.adventofcode.day8.part1;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.System.Logger;
-import java.lang.System.Logger.Level;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -39,8 +38,6 @@ public class Solver1 {
                 return Integer.parseInt(tree);
             }).toList());
         });
-
-        LOGGER.log(Level.INFO, trees);
 
         findVisibleTrees(canBeSeen, trees, 1, false);
         findVisibleTrees(canBeSeen, trees, -1, false);
