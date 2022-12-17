@@ -20,7 +20,6 @@ public class Solver {
     }
 
     public String solve() {
-
         var data = getInput();
         long start = System.nanoTime();
         String result = solution(data);
